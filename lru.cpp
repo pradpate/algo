@@ -1,3 +1,12 @@
+/*
+   unordered_map  find O(1)
+   list --> erase O(1)
+            pop_back O(1)
+            push_front O(1)
+            back O(1)
+            front O(1) 
+*/
+
 #include<iostream>
 #include<list>
 #include<stack>
