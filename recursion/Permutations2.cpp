@@ -14,24 +14,25 @@ Output:
 ]
 */
 
-
 class Solution {
-    void recursion(vector<int> num, int index, vector<vector<int> > &res) {
-        if (index== num.size()-1) {
-            res.push_back(num);
-            return;
+    void permute(vector<int> nums, int index, vector<vector<int>> &result) {
+        if (index == nums.size()) {
+            result.push_back(nums);
         }
-        for (int i = index; i < num.size(); i++) {
-            if (index!= i && num[index] == num[i]) continue;
-            swap(num[index], num[i]);
-            recursion(num, index +1, res);
+        for (int i = index; i < nums.size(); i++) {
+            if (i != index && nums[index] == nums[i])  continue; 
+            swap(nums[i], nums[index]);
+            permute(nums, index + 1, result);
         }
-    }
-    public:
-    vector<vector<int> > permuteUnique(vector<int> &num) {
-        sort(num.begin(), num.end());
-        vector<vector<int> >res;
-        recursion(num, 0, res);
-        return res;
+
+        return;
+    }    
+public:
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        vector<vector<int>> result;
+        sort(begin(nums), end(nums));
+        permute(nums, 0, result);
+        return result;        
     }
 };
+
